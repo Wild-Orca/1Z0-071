@@ -1,0 +1,53 @@
+In Oracle SQL, when using group functions such as COUNT, SUM, AVG, MAX, and MIN, you can restrict the results by adding a HAVING clause. 
+The HAVING clause is similar to the WHERE clause but is applied after the GROUP BY clause and is used to filter group results based on aggregate conditions. 
+Here are some examples:
+
+1. Basic HAVING Clause:
+You can use the HAVING clause to filter groups based on aggregate conditions.
+    SELECT department_id, COUNT(*) AS employee_count
+      FROM employees
+     GROUP BY department_id
+    HAVING COUNT(*) > 5;
+
+2. Combining HAVING with GROUP BY:
+You can use both GROUP BY and HAVING clauses together for more complex aggregations.
+    SELECT department_id
+         , job_id, AVG(salary) AS avg_salary
+      FROM employees
+     GROUP BY department_id
+            , job_id
+    HAVING AVG(salary) > 50000;
+
+3. Using HAVING with SUM:
+You can use the HAVING clause with the SUM function to filter based on the total sum of a column.
+    SELECT department_id
+         , MAX(salary) AS max_salary
+      FROM employees
+     GROUP BY department_id
+    HAVING MAX(salary) > 80000;
+
+4. Filtering on Aggregate Conditions:
+The HAVING clause allows you to filter on various aggregate conditions.
+    SELECT department_id
+         , AVG(salary) AS avg_salary
+      FROM employees
+     GROUP BY department_id
+    HAVING AVG(salary) BETWEEN 50000 AND 80000;
+
+5. Using HAVING with COUNT and Logical Operators:
+You can use logical operators in combination with COUNT and HAVING to filter groups based on multiple conditions.
+    SELECT department_id, COUNT(*) AS employee_count
+      FROM employees
+     GROUP BY department_id
+    HAVING COUNT(*) > 5 AND COUNT(*) < 10;
+
+6. Hiding NULL Values with HAVING:
+You can use the HAVING clause to filter out groups that include NULL values.
+    SELECT department_id, AVG(salary) AS avg_salary
+      FROM employees
+     GROUP BY department_id
+    HAVING AVG(salary) IS NOT NULL;
+
+These examples demonstrate how to use the HAVING clause to restrict group results in Oracle SQL when working with group functions. 
+The HAVING clause is particularly useful for filtering aggregated data based on conditions that involve the results of group functions. 
+Always refer to the Oracle documentation for the specific version you are using for detailed information on group functions and the HAVING clause.

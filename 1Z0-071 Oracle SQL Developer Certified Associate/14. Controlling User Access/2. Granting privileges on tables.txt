@@ -1,0 +1,55 @@
+Granting privileges on tables in a relational database is a fundamental aspect of controlling user access. 
+Here are some common SQL statements for granting privileges on tables:
+
+Object Privileges on Tables:
+Granting SELECT Privilege:
+Allows a user to retrieve data from a table.
+
+    GRANT SELECT ON table_name TO username;
+
+Granting INSERT Privilege:
+Allows a user to insert new rows into a table.
+    GRANT INSERT ON table_name TO username;
+
+Granting UPDATE Privilege:
+Allows a user to modify existing rows in a table.
+    GRANT UPDATE ON table_name TO username;
+
+Granting DELETE Privilege:
+Allows a user to remove rows from a table.
+    GRANT DELETE ON table_name TO username;
+
+Granting ALL Privileges:
+Grants all available privileges on a table.
+    GRANT ALL ON table_name TO username;
+
+Granting Privileges with the OPTION Clause:
+When granting privileges, you can use the WITH OPTION clause to allow the grantee to further grant those privileges to other users. For example:
+    GRANT SELECT, INSERT ON table_name TO username WITH GRANT OPTION;
+
+Granting Privileges to Roles:
+Instead of granting privileges directly to individual users, you can grant privileges to roles and then assign those roles to users.
+    Creating a Role:
+    CREATE ROLE role_name;
+
+    Granting Privileges to a Role:
+    GRANT SELECT, INSERT ON table_name TO role_name;
+
+    Granting the Role to a User:
+    GRANT role_name TO username;
+
+Revoking Privileges:
+To revoke previously granted privileges, you can use the REVOKE statement.
+    Revoking SELECT Privilege:
+    REVOKE SELECT ON table_name FROM username;
+
+    Revoking ALL Privileges:
+    REVOKE ALL ON table_name FROM username;
+
+Viewing Granted Privileges:
+To view the privileges granted on a table, you can query the USER_TAB_PRIVS or ALL_TAB_PRIVS view.
+    SELECT * FROM USER_TAB_PRIVS WHERE TABLE_NAME = 'table_name';
+
+
+Remember to replace username and table_name with the appropriate values based on your database schema and user accounts. 
+Always grant the minimum necessary privileges to users to ensure the principle of least privilege and enhance security.

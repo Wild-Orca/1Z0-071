@@ -1,0 +1,33 @@
+In Oracle SQL, you can nest multiple functions by using one function is result as an argument for another function. 
+This allows you to perform complex operations and transformations on data within a single SQL query. 
+Here are some examples of nesting multiple functions:
+
+1. Nesting TO_CHAR and TO_DATE:
+You can nest TO_CHAR and TO_DATE functions to change the format of a date value.
+    SELECT TO_CHAR(TO_DATE('2022-01-15', 'YYYY-MM-DD'), 'DD-MON-YYYY') AS formatted_date
+      FROM dual;
+
+2. Nesting TO_NUMBER and TO_CHAR:
+You can nest TO_NUMBER and TO_CHAR functions to format a numeric value.
+    SELECT TO_CHAR(TO_NUMBER('12345') + 500, '999,999') AS formatted_number
+      FROM dual;
+
+3. Nesting Functions in WHERE Clause:
+You can nest functions in the WHERE clause to filter data based on complex conditions.
+    SELECT employee_id, salary
+      FROM employees
+     WHERE TO_NUMBER(salary) > 50000;
+
+4. Nesting TRUNC and TO_CHAR for Date Formatting:
+You can nest functions to perform operations and formatting in a single query.
+    SELECT employee_id, TO_CHAR(TRUNC(hire_date, 'MONTH'), 'DD-MON-YYYY') AS start_of_month
+      FROM employees;
+
+5. Nesting COALESCE and TO_NUMBER:
+You can nest functions to handle NULL values and perform numeric operations.
+    SELECT employee_id, COALESCE(TO_NUMBER(salary), 0) AS numeric_salary
+      FROM employees;
+
+These examples illustrate how you can nest functions to achieve more complex transformations and conditions in your SQL queries. 
+Always consider the order of execution and the compatibility of nested functions. 
+Always refer to the Oracle documentation for the specific version you are using for detailed information on these functions and their parameters.

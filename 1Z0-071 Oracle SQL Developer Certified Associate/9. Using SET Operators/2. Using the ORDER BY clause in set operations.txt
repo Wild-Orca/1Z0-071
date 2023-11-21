@@ -1,0 +1,17 @@
+When using set operators within a subquery and wanting to apply the ORDER BY clause to the subquery, you can use the ORDER BY clause at the end of each SELECT statement within the parentheses. 
+Here is an example:
+
+    SELECT *
+      FROM (SELECT employee_id
+                 , employee_name 
+              FROM employees
+            UNION
+            SELECT manager_id
+                 , manager_name 
+              FROM managers
+            ORDER BY 1)
+     WHERE department_id = 10;
+
+These examples demonstrate how to use the ORDER BY clause with set operators in Oracle SQL. 
+The ORDER BY clause is applied to the final result set after the set operation has been performed. 
+Always refer to the Oracle documentation for the specific version you are using for detailed information on using set operators and the ORDER BY clause together.

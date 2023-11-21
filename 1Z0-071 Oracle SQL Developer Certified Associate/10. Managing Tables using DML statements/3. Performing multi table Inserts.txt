@@ -1,0 +1,24 @@
+Performing multi-table inserts in Oracle SQL involves inserting data into multiple tables using a single INSERT statement. 
+This can be achieved using the INSERT ALL statement with multiple INSERT INTO clauses. Here's an example:
+
+Example: Multi-Table Insert
+Suppose you have two tables, "employees" and "departments," and you want to insert data into both tables in a single transaction:
+    INSERT ALL 
+       INTO employees (employee_id, employee_name, department_id, salary)
+          VALUES (1, 'John Doe', 101, 50000)
+       INTO departments (department_id, department_name, location)
+          VALUES (101, 'Development', 'New York')
+    SELECT * FROM dual;
+
+In this example:
+    The INSERT ALL statement allows you to perform multiple INSERT INTO clauses in a single statement.
+    The first INSERT INTO clause inserts data into the "employees" table.
+    The second INSERT INTO clause inserts data into the "departments" table.
+    The SELECT * FROM dual is used to complete the INSERT ALL syntax.
+
+You can customize the data being inserted based on your requirements. Ensure that the columns and values align correctly with the structure of your tables.
+
+It's important to note that this method is useful when you need to maintain consistency between data inserted into multiple tables within a single transaction. 
+If an error occurs during the insert operation for any table, the entire transaction is rolled back, ensuring data integrity.
+
+Always test your multi-table inserts in a safe environment before using them in a production setting, and make sure the column data types and values match the requirements of your tables.

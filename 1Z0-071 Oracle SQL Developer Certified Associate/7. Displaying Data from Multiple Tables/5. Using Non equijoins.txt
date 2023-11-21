@@ -1,0 +1,30 @@
+A non-equijoin, also known as a theta join, is a type of join in SQL where the join condition is based on a comparison other than equality between columns. 
+Unlike an equijoin, which uses the equal (=) operator, a non-equijoin uses other comparison operators such as <, >, <=, >=, or <> (not equal).
+
+Here is an example of using a non-equijoin in Oracle SQL:
+Example: Non-Equijoin
+
+Lets say you have two tables, "employees" and "salaries," and you want to retrieve employees whose salary is greater than the average salary in the "salaries" table:
+    SELECT e.employee_id
+         , e.employee_name
+         , e.salary
+         , s.average_salary
+      FROM employees e
+      JOIN (SELECT department_id, AVG(salary) AS average_salary
+              FROM salaries
+             GROUP BY department_id) s 
+           ON e.department_id = s.department_id 
+          AND e.salary > s.average_salary;
+
+In this example:
+    The subquery calculates the average salary for each department in the "salaries" table.
+    The main query then performs a non-equijoin between the "employees" table and the subquery based on the department_id.
+    The join condition includes the additional condition e.salary > s.average_salary, making it a non-equijoin.
+
+This query retrieves employees along with their salaries and the average salary for their respective departments, but only includes employees whose salary is greater than the departments average salary.
+
+Non-equijoins are useful when you need to compare columns using conditions other than equality. 
+However, they should be used carefully, as they might involve more complex logic and potentially result in larger result sets.
+
+Always ensure that your non-equijoins make sense in the context of your data and business requirements. 
+Understanding the relationships between columns and the logic behind the join conditions is crucial for writing accurate and efficient queries.

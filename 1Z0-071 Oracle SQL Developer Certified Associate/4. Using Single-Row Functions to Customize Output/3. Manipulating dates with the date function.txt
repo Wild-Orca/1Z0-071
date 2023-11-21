@@ -1,0 +1,33 @@
+In Oracle SQL, the DATE data type and various date functions are used to manipulate date values. 
+Here are some common date functions and examples of how to use them:
+
+1. CURRENT_DATE:
+Returns the current date.
+    SELECT CURRENT_DATE AS current_date
+      FROM dual;
+
+2. SYSDATE:
+Returns the current date and time.
+    SELECT SYSDATE AS current_datetime
+      FROM dual;
+
+3. LAST_DAY:
+Returns the last day of the month for a given date.
+    SELECT LAST_DAY(SYSDATE) AS last_day_of_month
+      FROM dual;
+
+4. NEXT_DAY:
+Returns the last day of the month for a given date.
+    SELECT NEXT_DAY(SYSDATE) AS last_day_of_month
+      FROM dual;
+
+5. TO_DATE and TO_CHAR:
+TO_DATE converts a string to a date, and TO_CHAR converts a date to a string.
+    SELECT TO_DATE('20/11/2023', 'DD/MM/RRRR') AS converted_date
+      FROM dual;
+
+    SELECT TO_CHAR(SYSDATE, 'DD/MM/RRRR HH24:MI:SS') AS formatted_date
+      FROM dual;
+
+These examples demonstrate how to use various date functions in Oracle SQL to manipulate and work with date values. 
+Always refer to the Oracle documentation for the specific version you are using for detailed information on these functions and their parameters.

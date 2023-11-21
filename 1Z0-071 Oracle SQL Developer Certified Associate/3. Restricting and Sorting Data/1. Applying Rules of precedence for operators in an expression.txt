@@ -1,0 +1,41 @@
+In SQL, the rules of precedence dictate the order in which operators are evaluated in an expression. 
+Understanding these rules is important for writing accurate and predictable SQL queries.
+Here is a summary of the rules of precedence, from highest to lowest:
+
+1. Parentheses:
+Expressions enclosed in parentheses are evaluated first.
+    SELECT (salary + bonus) * 0.1 AS tax
+      FROM employee_compensation;
+
+2. Unary Operators:
+Unary operators (e.g., - for negation) have the next highest precedence.
+    SELECT -salary AS negated_salary
+      FROM employees;
+
+3. Arithmetic Operators:
+Multiplication (*), division (/), and modulo (%) have higher precedence than addition (+) and subtraction (-).
+    SELECT salary * 0.1 + bonus AS total_compensation
+      FROM employee_compensation;
+
+4. Concatenation Operator:
+The concatenation operator (||) has higher precedence than most other operators.
+    SELECT first_name || ' ' || last_name AS full_name
+      FROM employees;
+
+5. Comparison Operators:
+Comparison operators (e.g., =, <, >, <=, >=, <>, !=) have lower precedence than arithmetic and concatenation operators.
+    SELECT employee_id
+         , salary * 1.1 AS increased_salary
+      FROM employees
+     WHERE department_id <> 10;
+
+6. Logical Operators:
+Logical operators (e.g., AND, OR, NOT) have the lowest precedence.
+    SELECT employee_id
+         , first_name
+         , last_name
+      FROM employees
+     WHERE salary > 50000 
+       AND department_id = 20;
+
+Understanding the rules of precedence is crucial for writing accurate and meaningful SQL expressions, as it determines the order in which operations are executed. If in doubt, use parentheses to explicitly specify the desired order of operations and improve the clarity of your SQL queries.

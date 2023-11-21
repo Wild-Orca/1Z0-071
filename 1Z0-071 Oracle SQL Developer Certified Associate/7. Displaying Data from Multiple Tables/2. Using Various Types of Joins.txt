@@ -1,0 +1,54 @@
+In Oracle SQL, you can use various types of joins to retrieve data from multiple tables. 
+Here are examples of different types of joins:
+
+1. INNER JOIN:
+The INNER JOIN keyword selects records that have matching values in both tables.
+    SELECT employees.employee_id
+         , employees.employee_name
+         , departments.department_name
+      FROM employees
+      INNER JOIN departments ON employees.department_id = departments.department_id;
+
+2. LEFT JOIN (or LEFT OUTER JOIN):
+The LEFT JOIN keyword returns all records from the left table (employees), and the matched records from the right table (departments). 
+The result is NULL from the right side if there is no match.
+    SELECT employees.employee_id
+         , employees.employee_name
+         , departments.department_name
+      FROM employees
+      LEFT JOIN departments ON employees.department_id = departments.department_id;
+
+3. RIGHT JOIN (or RIGHT OUTER JOIN):
+The RIGHT JOIN keyword returns all records from the right table (departments), and the matched records from the left table (employees). 
+The result is NULL from the left side when there is no match.
+    SELECT employees.employee_id
+         , employees.employee_name
+         , departments.department_name
+      FROM employees
+      RIGHT JOIN departments ON employees.department_id = departments.department_id;
+
+4. FULL JOIN (or FULL OUTER JOIN):
+The FULL JOIN keyword returns all records when there is a match in either left (employees) or right (departments) table records.
+    SELECT employees.employee_id
+         , employees.employee_name
+         , departments.department_name
+      FROM employees
+      FULL JOIN departments ON employees.department_id = departments.department_id;
+
+5. CROSS JOIN:
+The CROSS JOIN keyword returns the Cartesian product of the two tables, combining each row from the first table with every row from the second table.
+    SELECT employees.employee_id, employees.employee_name, departments.department_name
+      FROM employees
+      CROSS JOIN departments;
+
+6. SELF JOIN:
+A SELF JOIN is a regular join, but the table is joined with itself. It is useful for hierarchical structures.
+    SELECT e1.employee_id
+         , e1.employee_name
+         , e2.employee_name AS manager_name
+      FROM employees e1
+      LEFT JOIN employees e2 ON e1.manager_id = e2.employee_id;
+
+These examples showcase the use of various types of joins in Oracle SQL. 
+The choice of which type of join to use depends on the specific requirements of your query and the relationship between the tables. 
+Always refer to the Oracle documentation for the specific version you are using for detailed information on joins and their usage.

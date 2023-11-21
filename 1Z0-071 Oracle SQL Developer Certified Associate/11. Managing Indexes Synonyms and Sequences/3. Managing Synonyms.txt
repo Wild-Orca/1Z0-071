@@ -1,0 +1,40 @@
+In Oracle SQL, a synonym is an alias for a database object, such as a table, view, sequence, or another synonym. 
+Synonyms provide a way to simplify SQL statements and to mask the underlying structure of the database. 
+Here are key operations related to managing synonyms:
+
+Creating a Synonym:
+To create a synonym, you can use the CREATE SYNONYM statement. For example:
+    CREATE SYNONYM emp_syn FOR employees;
+
+In this example:
+    The synonym named emp_syn is created for the employees table.
+    Now, you can refer to the employees table using the emp_syn alias.
+
+Dropping a Synonym:
+To remove a synonym, you can use the DROP SYNONYM statement:
+    DROP SYNONYM emp_syn;
+
+Viewing Synonym Information:
+You can query the data dictionary views to obtain information about existing synonyms. For example:
+    SELECT synonym_name, table_name
+      FROM user_synonyms
+     WHERE synonym_name = 'EMP_SYN';
+
+Altering a Synonym:
+Synonyms don't have many alterable properties, but you can replace the underlying object that a synonym refers to using the REPLACE keyword:
+    CREATE OR REPLACE SYNONYM emp_syn FOR new_employees_table;
+
+Public Synonyms:
+A public synonym is a synonym that is accessible to all database users. 
+To create a public synonym, you need the CREATE PUBLIC SYNONYM privilege. For example:
+    CREATE PUBLIC SYNONYM emp_syn FOR employees;
+
+Public synonyms are available to all users in the database.
+
+Private Synonyms:
+A private synonym is specific to the schema in which it is created. 
+If no schema is specified, the synonym is created in the schema of the current user. 
+Most synonyms are private by default.
+
+Synonyms are useful for simplifying queries, especially in scenarios where the underlying object names may change or when you want to provide a user-friendly name for an object. 
+Always ensure that synonyms are appropriately named and documented for clarity and maintainability.

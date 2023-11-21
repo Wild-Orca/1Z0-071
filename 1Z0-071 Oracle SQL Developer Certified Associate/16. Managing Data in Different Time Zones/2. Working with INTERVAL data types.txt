@@ -1,0 +1,63 @@
+In Oracle SQL, the INTERVAL data type is used to represent a period of time. 
+It can be used to perform arithmetic operations on date and timestamp values. 
+Here are examples of how to work with INTERVAL data types:
+
+1. Creating INTERVALs:
+You can create intervals using the INTERVAL keyword.
+    Creating an interval of 3 days
+    SELECT SYSDATE + INTERVAL '3' DAY AS future_date
+      FROM dual;
+
+    Creating an interval of 2 hours and 30 minutes
+    SELECT SYSTIMESTAMP + INTERVAL '2 30' MINUTE TO SECOND AS future_timestamp
+      FROM dual;
+
+2. Adding and Subtracting INTERVALs:
+You can perform arithmetic operations with intervals.
+    Adding 1 month to the current date
+    SELECT SYSDATE + INTERVAL '1' MONTH AS future_date
+      FROM dual;
+
+    Subtracting 1 hour from the current timestamp
+    SELECT SYSTIMESTAMP - INTERVAL '1' HOUR AS past_timestamp
+      FROM dual;
+
+3. Extracting Components from INTERVALs:
+You can use the EXTRACT function to retrieve specific components from an interval.
+    Extracting the number of days from an interval
+    SELECT EXTRACT(DAY FROM INTERVAL '5' DAY) AS days_in_interval
+      FROM dual;
+
+    Extracting the number of hours from an interval
+    SELECT EXTRACT(HOUR FROM INTERVAL '2 03:30:00' DAY TO SECOND) AS hours_in_interval
+    FROM dual;
+
+4. Using INTERVAL with TIMESTAMP Data:
+You can add an interval to a timestamp to get a new timestamp.
+    Adding 3 hours and 30 minutes to the current timestamp
+    SELECT SYSTIMESTAMP + INTERVAL '3 30' MINUTE TO SECOND AS future_timestamp
+      FROM dual;
+
+5. Using INTERVAL in WHERE Clause:
+You can use intervals in the WHERE clause to filter data based on time periods.
+    Selecting orders placed in the last 7 days
+    SELECT order_id, order_date
+      FROM orders
+     WHERE order_date > SYSDATE - INTERVAL '7' DAY;
+
+6. Formatting INTERVAL Data:
+You can use the TO_DSINTERVAL function to format an interval.
+    Formatting an interval
+    SELECT TO_DSINTERVAL('0 05:30:00') AS formatted_interval
+      FROM dual;
+
+7. Extracting DAY TO SECOND Interval Components:
+When working with DAY TO SECOND intervals, you can extract individual components.
+    Extracting days and hours from a DAY TO SECOND interval
+    SELECT EXTRACT(DAY FROM INTERVAL '3 12:30:00' DAY TO SECOND) AS days_in_interval,
+           EXTRACT(HOUR FROM INTERVAL '3 12:30:00' DAY TO SECOND) AS hours_in_interval
+      FROM dual;
+
+These examples illustrate various ways to work with INTERVAL data types in Oracle SQL. 
+The INTERVAL data type is powerful for representing and manipulating periods of time in a precise manner. 
+Always refer to the Oracle documentation for the specific version you are using for detailed information on INTERVAL data types and their usage.
