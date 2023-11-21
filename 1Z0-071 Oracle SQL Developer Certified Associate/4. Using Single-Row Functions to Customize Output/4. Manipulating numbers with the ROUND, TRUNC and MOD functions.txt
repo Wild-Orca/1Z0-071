@@ -1,0 +1,28 @@
+In Oracle SQL, the ROUND, TRUNC, and MOD functions are commonly used to manipulate numbers. 
+Here are examples of how each function can be used:
+
+1. ROUND Function:
+The ROUND function is used to round a numeric value to a specified number of decimal places.
+    Rounding a number to two decimal places:
+    SELECT ROUND(15.6789, 2) AS rounded_number
+      FROM dual;
+
+2. TRUNC Function:
+The TRUNC function is used to truncate a numeric value to a specified number of decimal places or truncate a date to a specified date component.
+    Truncating a number to one decimal place:
+    SELECT TRUNC(25.345, 1) AS truncated_number
+      FROM dual;
+
+3. MOD Function:
+The MOD function returns the remainder of a division operation.
+    Calculating the remainder of the division:
+    SELECT MOD(17, 5) AS remainder
+      FROM dual;
+
+    Using MOD to check for even numbers:
+    SELECT employee_id
+      FROM employees
+     WHERE MOD(employee_id, 2) = 0;
+
+These examples illustrate how to use the ROUND, TRUNC, and MOD functions to manipulate numbers in various ways. 
+Always refer to the Oracle documentation for the specific version you are using for detailed information on these functions and their parameters.

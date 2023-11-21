@@ -1,0 +1,27 @@
+In Oracle SQL, the NVL, NULLIF, and COALESCE functions are commonly used to handle NULL values in data. 
+Here are examples of how to use each function:
+
+1. NVL Function:
+The NVL function is used to replace a NULL value with a specified default value.
+    SELECT employee_id
+         , NVL(salary, 0) AS actual_salary
+      FROM employees;
+
+2. NULLIF Function:
+The NULLIF function returns NULL if two expressions are equal; otherwise, it returns the first expression.
+    SELECT employee_id, NULLIF(commission_pct, 0) AS commission_percentage
+      FROM employees;
+
+3. COALESCE Function:
+The COALESCE function returns the first non-NULL expression in the list.
+    SELECT employee_id, COALESCE(manager_id, supervisor_id, 'Not Assigned') AS assigned_manager
+      FROM employees;
+
+4. Using NVL2 for Conditional Replacement:
+The NVL2 function is used for conditional replacement. It returns the first expression if it is not NULL; otherwise, it returns the second expression.
+    SELECT employee_id, NVL2(manager_id, 'Assigned', 'Not Assigned') AS manager_assignment
+      FROM employees;
+
+These functions provide flexibility in dealing with NULL values in SQL queries. 
+Choose the function that best fits the logic you need for handling NULLs in your specific use case. 
+Always refer to the Oracle documentation for the specific version you're using for detailed information on these functions and their parameters.

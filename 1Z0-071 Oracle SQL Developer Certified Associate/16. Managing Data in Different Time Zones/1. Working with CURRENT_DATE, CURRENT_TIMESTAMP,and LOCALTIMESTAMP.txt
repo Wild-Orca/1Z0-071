@@ -1,0 +1,43 @@
+When working with data in different time zones in Oracle SQL, it is important to be mindful of time zone conversions and use appropriate date and timestamp functions. 
+Here are examples of how to manage data in different time zones using CURRENT_DATE, CURRENT_TIMESTAMP, and LOCALTIMESTAMP:
+
+1. CURRENT_DATE:
+The CURRENT_DATE function returns the current date in the session time zone.
+    SELECT CURRENT_DATE AS current_date
+      FROM dual;
+
+2. CURRENT_TIMESTAMP:
+The CURRENT_TIMESTAMP function returns the current date and time in the session time zone.
+    SELECT CURRENT_TIMESTAMP AS current_datetime
+      FROM dual;
+
+3. LOCALTIMESTAMP:
+The LOCALTIMESTAMP function also returns the current date and time, but it returns it in the session time zone.
+    SELECT LOCALTIMESTAMP AS local_datetime
+      FROM dual;
+
+4. Handling Different Time Zones:
+To work with data in different time zones, you can use the AT TIME ZONE clause to convert a timestamp to a different time zone.
+    SELECT order_id, order_date
+      FROM orders
+     WHERE order_date > CURRENT_TIMESTAMP AT TIME ZONE 'UTC';
+
+5. Converting to a Specific Time Zone:
+You can explicitly convert a timestamp to a specific time zone using the FROM_TZ function.
+    SELECT order_id, FROM_TZ(order_date, 'America/New_York') AS order_date_ny
+      FROM orders;
+
+6. Working with Session Time Zone:
+You can change the session time zone using the ALTER SESSION statement.
+    ALTER SESSION SET TIME_ZONE = 'UTC';
+    SELECT CURRENT_TIMESTAMP AS current_datetime_utc
+      FROM dual;
+
+7. Extracting Time Zone Information:
+You can extract time zone information using the EXTRACT function.
+    SELECT order_id, EXTRACT(TIMEZONE_HOUR FROM order_date) AS timezone_offset
+      FROM orders;
+
+These examples demonstrate how to work with date and timestamp functions in different time zones in Oracle SQL. 
+Always consider the time zone information when handling date and time data to ensure accurate and consistent results. 
+Always refer to the Oracle documentation for the specific version you are using for detailed information on these functions and their parameters.

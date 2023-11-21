@@ -1,0 +1,37 @@
+Temporary tables are tables that are used to store temporary data, and they are particularly useful in scenarios where you need to store and process intermediate results within a session. 
+In SQL, temporary tables are often created in a way that allows them to exist only for the duration of a database session.
+Here's a basic guide on creating and using temporary tables:
+
+Creating a Temporary Table:
+In SQL, the syntax for creating a temporary table can vary between database systems. 
+However, a common approach is to use the CREATE TEMPORARY TABLE or CREATE TABLE statement with a specific modifier to indicate the temporary nature of the table. 
+Here's an example using the CREATE TEMPORARY TABLE syntax:
+    CREATE TEMPORARY TABLE temp_employees (
+        employee_id INT,
+        first_name VARCHAR(50),
+        last_name VARCHAR(50));
+
+Inserting Data into a Temporary Table:
+You can insert data into a temporary table using the INSERT INTO statement, just like with regular tables:
+    INSERT INTO temp_employees (employee_id, first_name, last_name)
+                        VALUES (1, 'John', 'Doe'),
+                               (2, 'Jane', 'Smith');
+
+Querying and Using the Temporary Table:
+Once the temporary table is created and populated, you can perform queries and operations on it as you would with any other table:
+    SELECT * FROM temp_employees;
+
+You can also use the temporary table in joins, subqueries, or other operations within the same session.
+
+Dropping the Temporary Table:
+Temporary tables are automatically dropped when the session ends, but you can explicitly drop them using the DROP TABLE statement:
+    DROP TEMPORARY TABLE temp_employees;
+
+Considerations:
+    Scope: Temporary tables are usually only visible and accessible within the session in which they are created. 
+    Different database systems may have variations in how they handle temporary tables, so consult the documentation for your specific database.
+    Permissions: Ensure that the user or role creating the temporary table has the necessary permissions.
+    Naming: Temporary tables often have a naming convention, such as a "temp_" prefix, to distinguish them from regular tables.
+    Data Lifespan: The data in a temporary table is usually only available for the duration of the session, but this behavior may vary based on the database system.
+
+Always refer to the documentation of the specific database system you are working with for precise syntax and behavior related to temporary tables.

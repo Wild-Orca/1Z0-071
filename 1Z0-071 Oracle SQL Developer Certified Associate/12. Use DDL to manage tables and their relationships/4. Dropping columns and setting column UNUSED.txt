@@ -1,0 +1,22 @@
+In SQL, you can drop columns from a table using the ALTER TABLE statement. 
+Additionally, Oracle Database provides the ability to mark a column as "UNUSED" without physically removing it from the table. 
+Let's look at examples for dropping columns and setting a column as UNUSED in Oracle:
+
+Dropping Columns:
+To drop a column from a table, you can use the ALTER TABLE statement with the DROP COLUMN clause. Here's an example:
+    ALTER TABLE employees DROP COLUMN hire_date;
+
+Setting Column UNUSED:
+Oracle Database allows you to mark a column as UNUSED without actually dropping it from the table. 
+This can be useful if you want to temporarily hide a column without affecting the table structure. 
+The syntax is as follows:
+    ALTER TABLE employees SET UNUSED COLUMN hire_date;
+
+This marks the "hire_date" column as UNUSED in the "employees" table. The column will be ignored by most SQL operations, and its space will not be reclaimed. 
+You can later remove the column from the table permanently using the DROP UNUSED COLUMNS statement:
+    ALTER TABLE employees DROP UNUSED COLUMNS;
+
+This statement removes all columns marked as UNUSED from the "employees" table.
+
+Please note that marking a column as UNUSED and later dropping it is specific to Oracle Database. Other database management systems may have different approaches to achieve similar results. 
+Always consult the documentation of the database system you are working with for the most accurate and up-to-date information.

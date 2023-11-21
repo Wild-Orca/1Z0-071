@@ -1,0 +1,12 @@
+In Oracle SQL*Plus, the DEFINE and VERIFY commands are used for defining substitution variables and verifying their values, respectively.
+
+1. DEFINE Command:
+The DEFINE command is used to create and assign values to substitution variables in SQL*Plus.
+    DEFINE variable_name = value;
+
+2. VERIFY Command:
+The VERIFY command is used to display the values of substitution variables when substitution variable prompting is turned off.
+    SET VERIFY ON | OFF;
+
+Please note that the usage of these commands is specific to Oracle SQL*Plus, and their behavior may differ in other SQL environments. 
+Always refer to the Oracle documentation for the version you are using for detailed information.

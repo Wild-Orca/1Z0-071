@@ -1,0 +1,41 @@
+In the context of relational databases, Data Definition Language (DDL) is used to manage tables and their relationships. 
+DDL statements are responsible for defining, altering, and deleting database structures. 
+Here are some common DDL statements related to managing tables and their relationships:
+
+Create a Table:
+Use the CREATE TABLE statement to define a new table. 
+Include the column names along with their data types and any constraints.
+    CREATE TABLE employees (
+        employee_id INT PRIMARY KEY,
+        first_name VARCHAR(50),
+        last_name VARCHAR(50),
+        hire_date DATE,
+        department_id INT,
+        CONSTRAINT fk_department FOREIGN KEY (department_id) REFERENCES departments(department_id));
+
+Alter Table Structure:
+The ALTER TABLE statement is used to modify an existing table. You can add, modify, or drop columns.
+    ALTER TABLE employees ADD salary DECIMAL(10, 2);
+    ALTER TABLE employees MODIFY last_name VARCHAR(100);
+    ALTER TABLE employees DROP COLUMN hire_date;
+
+Create Index:
+Indexes improve the speed of data retrieval operations on a table. 
+Use the CREATE INDEX statement to create an index on one or more columns.
+    CREATE INDEX idx_last_name ON employees(last_name);
+
+Create Unique Constraint:
+A unique constraint ensures that values in a column or a group of columns are unique across the table.
+    ALTER TABLE employees ADD CONSTRAINT uc_employee_id UNIQUE (employee_id);
+
+Create Check Constraint:
+A check constraint enforces a condition on the values in a column.
+    ALTER TABLE employees ADD CONSTRAINT chk_salary CHECK (salary > 0);
+
+Drop Table:
+Use the DROP TABLE statement to remove a table and its data from the database.
+Be cautious when using DROP TABLE as it permanently deletes the table and its data.
+    DROP TABLE employees;
+
+These are some basic examples of how DDL statements can be used to manage tables and their relationships in a relational database. 
+Make sure to adapt these examples to your specific database schema and requirements.

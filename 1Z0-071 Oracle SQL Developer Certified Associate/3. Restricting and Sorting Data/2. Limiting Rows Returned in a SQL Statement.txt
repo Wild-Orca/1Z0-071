@@ -1,0 +1,32 @@
+Limiting the number of rows returned in a SQL statement is often necessary, especially when dealing with large datasets. Here are some ways to achieve this in SQL:
+
+1. Using the LIMIT Clause:
+The LIMIT clause is commonly used to restrict the number of rows returned in the result set. It is supported by databases like MySQL, PostgreSQL, SQLite, and others.
+    SELECT *
+      FROM table_name
+     LIMIT n;
+
+2. Using the FETCH FIRST Clause (ANSI SQL):
+The FETCH FIRST clause is part of the SQL:2008 standard and can be used to limit the number of rows returned.
+    SELECT *
+      FROM table_name
+     FETCH FIRST n ROWS ONLY;
+
+3. Using ROWNUM or ROW_NUMBER() (Oracle):
+In Oracle, you can use ROWNUM or ROW_NUMBER() with a subquery to limit the number of rows returned.
+    SELECT column1
+         , column2
+     FROM (SELECT column1
+                , column2
+             FROM table_name
+            WHERE ROWNUM <= n);
+
+4. Using OFFSET and FETCH (for Pagination):
+To implement pagination, you can use OFFSET and FETCH clauses.
+    SELECT *
+      FROM table_name
+    OFFSET m ROWS FETCH FIRST n ROWS ONLY;
+
+These methods allow you to control the number of rows returned in your SQL queries
+, whether you need a fixed number of rows, the first N rows, or a specific range for implementing pagination. 
+The exact syntax may vary depending on the database management system you are using.

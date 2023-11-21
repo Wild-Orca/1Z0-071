@@ -1,0 +1,12 @@
+In Oracle SQL, set operators (UNION, INTERSECT, MINUS) allow you to combine the results of multiple SELECT statements. 
+To use set operators, the SELECT statements involved must have compatible columns in terms of number and data types. 
+Here are examples of using MINUS:
+
+1. MINUS Operator:
+The MINUS operator returns the rows from the first SELECT statement that are not present in the second SELECT statement.
+SELECT employee_id, employee_name FROM employees
+MINUS
+SELECT manager_id, manager_name FROM managers;
+
+These examples demonstrate how to use the MINUS clause with set operators in Oracle SQL. 
+Always refer to the Oracle documentation for the specific version you are using for detailed information on using set operators and the MINUS clause together.

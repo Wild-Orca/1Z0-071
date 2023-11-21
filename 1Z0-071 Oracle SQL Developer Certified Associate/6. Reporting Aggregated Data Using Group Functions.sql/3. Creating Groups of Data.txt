@@ -1,0 +1,1 @@
+This topic is already completely covered on 1. Restricting Group Results and 2. Using Group Functions.

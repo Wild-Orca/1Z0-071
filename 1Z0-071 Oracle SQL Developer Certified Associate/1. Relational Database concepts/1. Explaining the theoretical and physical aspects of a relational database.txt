@@ -1,0 +1,59 @@
+Theoretical Aspects:
+
+    Tables/Relations:
+        Definition: A relational database is organized into tables or relations. Each table consists of rows and columns.
+        Purpose: Tables represent entities (e.g., customers, products) and their attributes.
+
+    Attributes/Fields:
+        Definition: Columns in a table that represent the properties or attributes of the entities.
+        Purpose: Attributes store specific information about the entities in the table.
+
+    Tuples/Rows:
+        Definition: Each row in a table is called a tuple. It represents a specific instance or record of the entity.
+        Purpose: Tuples hold the actual data.
+
+    Keys:
+        Primary Key: A unique identifier for each tuple in a table. Ensures data integrity.
+        Foreign Key: Links one table to the primary key of another table. Establishes relationships.
+
+    Relationships:
+        Definition: Connections between tables based on common keys.
+        Purpose: Represent associations between different entities.
+
+    Normalization:
+        Definition: The process of organizing data to reduce redundancy and improve data integrity.
+        Purpose: Ensures efficient data storage and minimizes data anomalies.
+
+Physical Aspects:
+
+    Storage Structures:
+        Data Pages: The basic unit of data storage.
+        Tablespaces: Logical storage containers for data pages.
+
+    Indexes:
+        Definition: Data structures that provide fast access to rows based on column values.
+        Purpose: Improve query performance by speeding up data retrieval.
+
+    Caching and Buffering:
+        Buffer Pool: In-memory storage for frequently accessed data.
+        Cache: Storage for frequently used query results.
+
+    File Organization:
+        Data Files: Physical files on disk storing the actual data.
+        Log Files: Record changes made to the database for recovery purposes.
+
+    Concurrency Control:
+        Locking Mechanisms: Ensure data consistency in multi-user environments.
+        Isolation Levels: Define the visibility of changes made by one transaction to other transactions.
+
+    Query Optimization:
+        Query Planner: Determines the most efficient way to execute a query.
+        Indexes and Statistics: Used to improve query performance.
+
+    Backup and Recovery:
+        Backup Strategies: Regularly create copies of the database.
+        Recovery Mechanisms: Restore the database to a consistent state after a failure.
+
+    Security:
+        Access Control: Define who can access and modify data.
+        Encryption: Protect sensitive data during transmission and storage.

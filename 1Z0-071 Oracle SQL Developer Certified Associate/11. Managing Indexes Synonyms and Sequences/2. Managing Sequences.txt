@@ -1,0 +1,50 @@
+In Oracle SQL, a sequence is a database object that generates a series of unique numeric values. 
+Sequences are often used to generate primary key values for tables. 
+Here are some key operations related to managing sequences:
+
+Creating a Sequence:
+To create a sequence, you can use the CREATE SEQUENCE statement. For example:
+    CREATE SEQUENCE employee_id_seq
+      START WITH 1
+      INCREMENT BY 1
+      MAXVALUE 1000
+      NOCACHE
+      NOCYCLE;
+
+In this example:
+    The sequence named employee_id_seq is created.
+    It starts with the value 1 and increments by 1 for each next value.
+    The MAXVALUE is set to 1000, indicating that the sequence will not exceed this value.
+    NOCACHE specifies that Oracle will not preallocate sequence numbers.
+    NOCYCLE indicates that the sequence will not restart after reaching the MAXVALUE.
+
+Retrieving Sequence Values:
+To retrieve the next value from a sequence, you can use the NEXTVAL function:
+    SELECT employee_id_seq.NEXTVAL 
+      FROM dual;
+
+Using Sequence Values in Insert Statements:
+You can use sequence values in INSERT statements to automatically generate unique identifiers:
+    INSERT INTO employees (employee_id, employee_name, salary)
+                   VALUES (employee_id_seq.NEXTVAL, 'John Doe', 50000);
+
+Altering a Sequence:
+You can use the ALTER SEQUENCE statement to modify the properties of an existing sequence. For example:
+    ALTER SEQUENCE employee_id_seq
+      INCREMENT BY 2
+      MAXVALUE 2000;
+
+Dropping a Sequence:
+To remove a sequence, you can use the DROP SEQUENCE statement:
+    DROP SEQUENCE employee_id_seq;
+
+Viewing Sequence Information:
+You can query the data dictionary views to obtain information about existing sequences. For example:
+    SELECT sequence_name
+         , last_number
+      FROM user_sequences
+     WHERE sequence_name = 'EMPLOYEE_ID_SEQ';
+
+Sequences are valuable for generating unique identifiers efficiently. 
+When using sequences, be mindful of their properties and how they fit into your database design. 
+Regularly monitor sequence usage and adjust parameters if needed to ensure optimal performance.

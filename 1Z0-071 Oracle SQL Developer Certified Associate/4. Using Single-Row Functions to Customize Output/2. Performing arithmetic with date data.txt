@@ -1,0 +1,50 @@
+Performing arithmetic with date data in Oracle SQL involves using various date functions and arithmetic operators. 
+Here are some common scenarios and examples:
+
+1. Adding/Subtracting Days:
+Use the + and - operators to add or subtract days from a date.
+    Adding 5 days to the current date:
+    SELECT SYSDATE + 5 AS future_date
+      FROM dual;
+
+    Subtracting 10 days from a specific date:
+    SELECT hire_date - 10 AS past_date
+      FROM employees
+     WHERE employee_id = 101;
+
+2. Calculating Date Differences:
+Use the - operator to find the difference between two dates.
+    Calculating the number of days between two dates:
+    SELECT end_date - start_date AS days_difference
+      FROM some_table;
+
+3. Adding/Subtracting Months:
+Use the ADD_MONTHS function to add or subtract months from a date.
+    Adding 3 months to a specific date:
+    SELECT ADD_MONTHS(some_date, 3) AS future_date
+      FROM some_table;
+
+    Subtracting 2 months from the current date:
+    SELECT ADD_MONTHS(SYSDATE, -2) AS past_date
+      FROM dual;
+
+4. Calculating Age:
+Use the MONTHS_BETWEEN function to calculate the number of months between two dates.
+    Calculating age in years:
+    SELECT employee_name, TRUNC(MONTHS_BETWEEN(SYSDATE, birth_date) / 12) AS age
+      FROM employees;
+
+5. Extracting Components:
+Use the EXTRACT function to retrieve specific components (year, month, day) from a date.
+    Extracting the year from a date:
+    SELECT employee_name, EXTRACT(YEAR FROM hire_date) AS hire_year
+      FROM employees;
+
+6. Interval Arithmetic:
+Use the INTERVAL keyword for more complex date arithmetic.
+    Adding 3 months and 10 days to a date:
+    SELECT some_date + INTERVAL '3' MONTH + INTERVAL '10' DAY AS future_date
+      FROM some_table;
+
+These examples showcase the flexibility of Oracle SQL when working with date arithmetic. 
+Always refer to the Oracle documentation for the specific version you are using for comprehensive information on date functions and their usage.

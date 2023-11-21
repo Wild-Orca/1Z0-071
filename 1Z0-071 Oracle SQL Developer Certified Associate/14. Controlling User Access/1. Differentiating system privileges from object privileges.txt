@@ -1,0 +1,72 @@
+In a database management system (DBMS), controlling user access involves granting and managing privileges. 
+There are two main types of privileges: system privileges and object privileges.
+
+System Privileges:
+System privileges are permissions that allow a user to perform certain actions at the system level, such as managing database objects or administering the database itself. 
+Here are some common system privileges:
+    CREATE SESSION:
+        Allows a user to connect to the database.
+    CREATE TABLE:
+        Allows a user to create new tables in a database.
+    CREATE USER:
+        Grants the ability to create new user accounts.
+    ALTER SYSTEM:
+        Provides the ability to alter database-wide settings.
+    DROP ANY TABLE:
+        Allows a user to drop any table in the database.
+    DBA Role:
+        Users with the DBA (Database Administrator) role have a wide range of system privileges allowing them to perform administrative tasks.
+
+Object Privileges:
+Object privileges, on the other hand, are permissions that apply to specific database objects, such as tables, views, procedures, or sequences. 
+Here are some common object privileges:
+    SELECT:
+        Allows a user to retrieve data from a table or view.
+    INSERT:
+        Grants the ability to insert new rows into a table.
+    UPDATE:
+        Allows a user to modify existing rows in a table.
+    DELETE:
+        Grants the ability to remove rows from a table.
+    EXECUTE:
+        Provides the ability to execute a stored procedure or function.
+    ALTER:
+        Allows a user to modify the structure of a table, such as adding or dropping columns.
+    REFERENCES:
+        Grants the ability to create a foreign key reference to a column.
+
+Granting and Revoking Privileges:
+    Granting System Privileges:
+    GRANT CREATE SESSION TO username;
+
+    Revoking System Privileges:
+    REVOKE CREATE SESSION FROM username;
+
+    Granting Object Privileges:
+    GRANT SELECT, INSERT, UPDATE ON employees TO username;
+
+    Revoking Object Privileges:
+    REVOKE SELECT, INSERT, UPDATE ON employees FROM username;
+
+Roles:
+Roles are a way to group privileges together, simplifying the process of managing and assigning permissions. 
+For example, you can create a role with specific system or object privileges and then grant that role to users.
+    Creating a Role:
+    CREATE ROLE manager_role;
+
+    Granting Privileges to a Role:
+    GRANT SELECT, INSERT, UPDATE ON employees TO manager_role;
+
+    Granting a Role to a User:
+    GRANT manager_role TO username;
+
+Auditing Access:
+Database administrators can use auditing features to track user access, changes, and other activities in the database. 
+This helps in monitoring and ensuring security.
+    Enabling Auditing:
+    AUDIT SELECT TABLE, UPDATE TABLE BY scott BY ACCESS;
+
+    Viewing Audit Information:
+    SELECT * FROM DBA_AUDIT_TRAIL WHERE USERNAME = 'SCOTT';
+
+By understanding and appropriately managing system and object privileges, along with utilizing roles and auditing, administrators can control user access to a database system effectively.
