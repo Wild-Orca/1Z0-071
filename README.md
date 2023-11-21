@@ -165,3 +165,8 @@ Managing Data in Different Time Zones
 Contributing
 
 This repository is an evolving resource, continuously updated to align with the latest exam objectives and SQL best practices. Your feedback and contributions are highly valued. If you identify areas for improvement, have additional resources to share, or spot any errors, please consider contributing.
+
+## Last Update (11/21/2023)
+
+This README was last updated on November 21, 2023. For the most recent information and contributions, please refer to the latest commits and discussions within the repository.
+
