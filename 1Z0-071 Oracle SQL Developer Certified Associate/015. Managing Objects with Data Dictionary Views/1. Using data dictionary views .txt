@@ -1,0 +1,68 @@
+In Oracle SQL, the data dictionary views provide information about the database objects, user accounts, privileges, and other metadata. 
+These views are part of the data dictionary, a set of tables and views containing metadata about the database. 
+Here are some commonly used data dictionary views and examples of how to use them:
+
+1. ALL_TABLES:
+Provides information about tables accessible by the current user.
+    SELECT table_name
+         , num_rows
+      FROM all_tables
+     WHERE owner = 'HR';
+
+2. ALL_TAB_COLUMNS:
+Contains information about columns of tables accessible by the current user.
+    SELECT table_name
+         , column_name
+         , data_type
+      FROM all_tab_columns
+     WHERE owner = 'HR';
+
+3. ALL_VIEWS:
+Provides information about views accessible by the current user.
+    SELECT view_name
+         , text
+      FROM all_views
+     WHERE owner = 'HR';
+
+4. USER_OBJECTS:
+Contains information about objects owned by the current user.
+    SELECT object_name
+         , object_type
+      FROM user_objects;
+
+5. ALL_USERS:
+Contains information about all database users.
+    SELECT username
+         , account_status
+      FROM all_users;
+
+6. DBA_TABLES:
+Provides information about all tables in the database (requires DBA privileges).
+    SELECT table_name
+         , num_rows
+      FROM dba_tables
+     WHERE owner = 'HR';
+
+7. DBA_TAB_COLUMNS:
+Contains information about columns of all tables in the database (requires DBA privileges).
+    SELECT table_name
+         , column_name
+         , data_type
+      FROM dba_tab_columns
+     WHERE owner = 'HR';
+
+8. DBA_VIEWS:
+    SELECT view_name
+         , text
+      FROM dba_views
+     WHERE owner = 'HR';
+
+9. DBA_USERS:
+Contains information about all database users (requires DBA privileges).
+    SELECT username
+         , account_status
+      FROM dba_users;
+
+
+These examples demonstrate how to use data dictionary views to obtain information about database objects, users, and other metadata. 
+Always ensure that you have the necessary privileges to access specific views, especially those prefixed with "DBA_." Refer to the Oracle documentation for the specific version you are using for comprehensive information on data dictionary views and their columns.

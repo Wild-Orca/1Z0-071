@@ -1,0 +1,46 @@
+External tables in SQL are used to access data stored outside the database, such as in flat files (CSV, text, etc.) or in other database systems. 
+External tables allow you to query and process data without the need to load it into the database.
+Here's a general guide on creating and using external tables:
+
+Creating an External Table:
+The syntax for creating an external table can vary depending on the database system you're using. 
+Below is an example for Oracle Database using the CREATE TABLE...ORGANIZATION EXTERNAL statement:
+    CREATE TABLE external_employees
+       (employee_id NUMBER,
+        first_name VARCHAR2(50),
+        last_name VARCHAR2(50))
+    ORGANIZATION EXTERNAL
+       (TYPE ORACLE_LOADER
+        DEFAULT DIRECTORY ext_data_dir
+        ACCESS PARAMETERS
+           (RECORDS DELIMITED BY NEWLINE
+            FIELDS (employee_id CHAR(10),
+                    first_name CHAR(50),
+                    last_name CHAR(50)))
+        LOCATION ('employees.csv'));
+
+In this example:
+    external_employees is the name of the external table.
+    The data is assumed to be in a CSV file named employees.csv.
+    The DEFAULT DIRECTORY specifies the directory where the external file is located.
+
+Querying the External Table:
+You can query the external table as if it were a regular table:
+    SELECT * FROM external_employees;
+
+Updating External Table Metadata:
+You might need to update metadata if the external data changes. For example, if the CSV file structure changes, you may need to update the external table definition accordingly.
+
+Dropping the External Table:
+To drop an external table, you can use the DROP TABLE statement:
+    DROP TABLE external_employees;
+
+Considerations:
+    Data Formats: Ensure that the data in the external file matches the data format specified in the external table definition.
+    Access Parameters: The ACCESS PARAMETERS clause is crucial. It defines how the external data is formatted and accessed.
+    File Location: The LOCATION clause specifies the path to the external file.
+    File Types: External tables can be used with various file types, such as CSV, text, XML, etc.
+    Read-Only: External tables are typically read-only. You can't perform DML operations directly on them.
+    Database System: The syntax and features related to external tables can vary between database systems (e.g., Oracle, SQL Server, etc.).
+
+Please refer to the documentation of your specific database system for detailed information on creating and using external tables as the syntax and options may differ between database management systems.

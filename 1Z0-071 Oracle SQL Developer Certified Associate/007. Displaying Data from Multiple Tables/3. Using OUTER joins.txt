@@ -1,0 +1,34 @@
+Outer joins in SQL, including Oracle SQL, are used to retrieve records from one table, even if there are no corresponding matches in another table. 
+There are three types of outer joins: LEFT OUTER JOIN, RIGHT OUTER JOIN, and FULL OUTER JOIN. Here are examples of each:
+
+1. LEFT OUTER JOIN:
+The LEFT OUTER JOIN returns all records from the left table (the table specified before the JOIN keyword) 
+and the matched records from the right table. 
+If there is no match, NULL values are returned for columns from the right table.
+    SELECT employees.employee_id
+         , employees.employee_name
+         , departments.department_name
+      FROM employees
+      LEFT JOIN departments ON employees.department_id = departments.department_id;
+
+2. RIGHT OUTER JOIN:
+The RIGHT OUTER JOIN returns all records from the right table (the table specified after the JOIN keyword) and the matched records from the left table. 
+If there is no match, NULL values are returned for columns from the left table.
+    SELECT employees.employee_id
+         , employees.employee_name
+         , departments.department_name
+    FROM employees
+    RIGHT JOIN departments ON employees.department_id = departments.department_id;
+
+3. FULL OUTER JOIN:
+The FULL OUTER JOIN returns all records when there is a match in either the left or the right table. 
+If there is no match, NULL values are returned for columns from the table without a match.
+    SELECT employees.employee_id
+         , employees.employee_name
+         , departments.department_name
+      FROM employees
+      FULL JOIN departments ON employees.department_id = departments.department_id;
+
+These examples demonstrate the use of outer joins in Oracle SQL. 
+The choice of which type of outer join to use depends on the specific requirements of your query and the relationship between the tables. 
+Always refer to the Oracle documentation for the specific version you are using for detailed information on outer joins and their usage.

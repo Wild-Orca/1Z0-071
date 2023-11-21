@@ -1,0 +1,53 @@
+Managing database transactions is a crucial aspect of database management. 
+In Oracle SQL, Data Manipulation Language (DML) statements are used to manage data within tables, and transactions are used to ensure the consistency and integrity of the database. 
+Transactions typically consist of one or more SQL statements that are executed as a single unit of work. 
+The key concepts related to managing transactions include:
+
+1. Transaction Control Statements:
+    Oracle SQL provides three main transaction control statements: COMMIT, ROLLBACK, and SAVEPOINT.
+    COMMIT: Commits the current transaction, making changes permanent.
+    ROLLBACK: Undoes changes made in the current transaction and ends the transaction.
+    SAVEPOINT: Sets a savepoint within a transaction to which you can later roll back.
+
+2. Auto-Commit:
+    By default, Oracle SQL operates in auto-commit mode, where each individual SQL statement is treated as a separate transaction that is automatically committed.
+    To disable auto-commit and initiate a transaction explicitly, you can use the BEGIN TRANSACTION statement.
+
+3. Committing a Transaction:
+    The COMMIT statement is used to permanently save changes made during the current transaction.
+    It is important to commit a transaction to make changes visible to other users and applications.
+    Syntax: COMMIT;
+
+4. Rolling Back a Transaction:
+    The ROLLBACK statement is used to undo changes made during the current transaction.
+    It is typically used in error-handling scenarios or to undo changes made in case of an issue.
+    Syntax: ROLLBACK;
+
+5. Savepoints:
+    Savepoints allow you to mark a point within a transaction to which you can later roll back.
+    Useful for partial rollbacks or handling errors without rolling back the entire transaction.
+    Syntax to set a savepoint: SAVEPOINT savepoint_name;
+    Syntax to roll back to a savepoint: ROLLBACK TO savepoint_name;
+
+6. Implicit Rollbacks:
+    Certain operations automatically cause an implicit rollback, such as DDL (Data Definition Language) statements.
+    Examples of DDL statements include CREATE, ALTER, and DROP.
+
+Example: Managing Transactions
+    BEGIN
+       -- Start a transaction explicitly
+       -- Perform DML operations
+
+       -- Check for errors and commit or rollback accordingly
+       IF (no_errors) THEN
+          COMMIT; -- Commit changes
+       ELSE
+          ROLLBACK; -- Rollback changes
+       END IF;
+    END;
+
+This example demonstrates the use of explicit transaction control within a PL/SQL block. 
+It starts a transaction explicitly, performs data manipulation operations, checks for errors, and commits or rolls back the transaction based on the outcome.
+
+Understanding and effectively managing transactions are essential for maintaining data integrity and consistency in a relational database. 
+Always consider the business logic and requirements when deciding when to commit or rollback a transaction.

@@ -1,0 +1,23 @@
+A Cartesian product, also known as a cross join, is a result of combining every row from one table with every row from another table. 
+It is formed when no specific join condition is specified. 
+The number of rows in the Cartesian product is the product of the number of rows in each table.
+
+Here is an example of using a Cartesian product in Oracle SQL:
+Example: Cartesian Product
+    SELECT employees.employee_id
+         , employees.employee_name
+         , departments.department_name
+      FROM employees
+      CROSS JOIN departments;
+
+In this query:
+    The CROSS JOIN clause is used to create a Cartesian product between the "employees" and "departments" tables.
+    Each row from the "employees" table is combined with every row from the "departments" table.
+
+While Cartesian products have specific use cases, they are generally used with caution due to their potential to generate a large result set. 
+If you are not careful, you may inadvertently retrieve more data than needed, leading to performance issues.
+
+It is worth mentioning that in many practical scenarios, a Cartesian product is not explicitly specified, and joins based on key relationships are preferred for more meaningful and selective results.
+
+Always ensure that you have a clear understanding of your data and the relationships between tables when working with Cartesian products. 
+Use them judiciously and consider the implications on performance and result set size.

@@ -1,0 +1,16 @@
+Sorting data in SQL is done using the ORDER BY clause in your SELECT statement. 
+This clause allows you to sort the result set based on one or more columns. 
+The default sorting order is ascending, but you can specify ascending (ASC) or descending (DESC) order explicitly.
+
+1. Basic Usage:
+    SELECT product_name, unit_price, supplier_id
+      FROM products
+    ORDER BY supplier_id, unit_price DESC;
+
+2. Sorting NULL Values:
+    SELECT product_name, unit_price, supplier_id
+      FROM products
+    ORDER BY supplier_id ASC NULLS FIRST;
+
+Sorting is a crucial aspect of retrieving and presenting data in a meaningful way. 
+The ORDER BY clause provides flexibility in specifying the sorting criteria and order for your result set.

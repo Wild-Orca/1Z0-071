@@ -1,0 +1,42 @@
+Data type conversion, also known as type casting, is the process of converting one data type to another. 
+In Oracle SQL, data type conversion can be either implicit or explicit.
+
+Implicit Data Type Conversion:
+    Implicit data type conversion, also known as automatic type conversion
+    , is performed by the database engine without requiring the user to explicitly specify the conversion. 
+    Oracle automatically converts data between compatible data types when needed.
+
+    Example of implicit data type conversion:
+    SELECT salary + 500
+      FROM employees;
+
+Explicit Data Type Conversion:
+    Explicit data type conversion, also known as type casting, is performed by the user by explicitly specifying the target data type. 
+    This is typically done using conversion functions like TO_NUMBER, TO_DATE, etc.
+
+    Example of explicit data type conversion:
+    SELECT TO_NUMBER('123') + 500
+      FROM dual;
+
+When to Use Implicit vs. Explicit Conversion:
+
+    Implicit Conversion:
+        Implicit conversion is convenient and often occurs automatically when the database engine determines that it is safe to convert between data types.
+        It is suitable when the conversion is straightforward and there is no risk of data loss or unexpected results.
+
+    Explicit Conversion:
+        Explicit conversion is necessary when there is a risk of data loss or when the user wants to ensure a specific conversion behavior.
+        It is useful when the user needs to convert data to a specific data type, such as converting a string to a date or a number.
+
+Considerations:
+
+    Performance:
+        Implicit conversion might have a slight impact on performance, especially in complex queries. 
+        Explicit conversion allows for more control over performance optimization.
+
+    Data Integrity:
+        Implicit conversion might lead to unexpected results or errors if the conversion is not straightforward. 
+        Explicit conversion allows the user to handle potential issues more proactively.
+
+Understanding when to use implicit or explicit conversion depends on the specific requirements of your query and the compatibility of the data types involved. 
+Always be mindful of potential data loss or unexpected behavior when performing type conversions.
