@@ -1,13 +1,13 @@
-This repository covers all the topics for the Oracle 1Z0-071 SQL Exam.
+<strong>This repository covers all the topics for the Oracle 1Z0-071 SQL Exam.</strong>
 
-How to Use
+<strong>How to Use</strong>
 
     Clone or download the repository to your local machine.
     Explore the organized folders for each exam topic.
     Read detailed explanations.
     Contribute and collaborate with the community to enhance your understanding.
 
-Topics Covered
+<strong>Topics Covered</strong><br>
 Relational Database Concepts
 
     Explaining Theoretical and Physical Aspects:
