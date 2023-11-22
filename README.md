@@ -7,7 +7,7 @@
     Read detailed explanations.
     Contribute and collaborate with the community to enhance your understanding.
 
-<strong>Topics Covered</strong><br>
+<strong>Topics Covered</strong><br><br>
 Relational Database Concepts
 
     Explaining Theoretical and Physical Aspects:
@@ -160,8 +160,7 @@ Managing Data in Different Time Zones
     Working with INTERVAL Data Types:
         Learn to work with INTERVAL data types for handling date and time intervals.
 
-Contributing
-
+<strong>Contributing</strong>
 This repository is an evolving resource, continuously updated to align with the latest exam objectives and SQL best practices. Your feedback and contributions are highly valued. If you identify areas for improvement, have additional resources to share, or spot any errors, please consider contributing.
 
 ## Last Update (11/21/2023)
