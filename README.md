@@ -1,6 +1,4 @@
-Oracle 1Z0-071 SQL Exam Preparation
-
-Welcome to the ultimate resource for preparing for the Oracle Database SQL Exam (1Z0-071)! Whether you're gearing up for the exam or aiming to master SQL, this repository is your go-to guide for comprehensive coverage of all exam topics and SQL fundamentals.
+This repository covers all the topics for the Oracle 1Z0-071 SQL Exam.
 
 How to Use
 
